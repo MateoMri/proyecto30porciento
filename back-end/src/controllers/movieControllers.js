@@ -63,4 +63,13 @@ movieController.putMovie = async (req, res) => {
     res.json({ message: "movie saved"});
 };
 
+// DELETE
+movieController.deleteMovie = async (req, res) => {
+    const deletedMovie = await movieModel.findByIdAndDelete(req.params.id);
+    if (!deletedMovie) {
+      return res.status(404).json({ message: "Movie does not exists" });
+    }
+    res.json({ message: " deleted movie" });
+  };
+
 export default movieController;
