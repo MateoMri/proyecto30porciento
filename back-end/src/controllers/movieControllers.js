@@ -22,6 +22,7 @@ movieController.getAllMovies = async (req, res) => {
 
 //insert
 movieController.insertMovie = async (req, res) => {
+    console.log(req.body);
     const {tittle, description, director, genre, year, duration} = req.body;
     let imageURL = "";
 

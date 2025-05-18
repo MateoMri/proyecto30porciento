@@ -39,4 +39,5 @@ const clientSchema = new Schema(
     }
 )
 
-export default model("client", clientSchema)
+const Client = model('client', clientSchema);
+export default Client;

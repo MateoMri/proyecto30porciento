@@ -1,8 +1,10 @@
-import app from "./app.js";
-import "./database.js"
+import app from './app.js'
+import './database.js'
+import {config} from '../back-end/src/config.js'
+
 async function main() {
-    app.listen(5000);
-    console.log("Server running...")
-    
+    app.listen(config.server.PORT);
+    console.log('Server on port', config.server.PORT);
 }
+
 main();

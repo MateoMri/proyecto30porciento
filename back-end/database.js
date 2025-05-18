@@ -1,14 +1,19 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-//configurar uri de la base de datos
-const URI = "mongodb://localhost:27017/ferreteriaEPA;"
+import {config} from '../back-end/src/config.js';
 
-//conectar a la base de datos
-mongoose.connect(URI);  
+  mongoose.connect(config.db.URI);
 
-//crear una variable 
-const connection = mongoose.connection;
+const db = mongoose.connection;
 
-connection.once("open", () => {console.log("db is connected")}) //si se conecta pasa esto
-connection.on("disconnected", () => {console.log("db is disconnected")}) //si no pasa esto
-connection.on("error",() => { console.log("ERROR")}) //si ripea pasa esto
+db.once('open', () => {
+  console.log('Database connected:');
+});
+
+db.on('error', err => {
+  console.error('connection error:', err);
+});
+
+db.on('disconnected', () => {
+  console.log('Database disconnected');
+});

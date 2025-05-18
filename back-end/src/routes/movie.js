@@ -4,7 +4,7 @@ import movieController from "../controllers/movieControllers.js";
 const router = express.Router();
 
 router
-router("/")
+.route("/")
 .get(movieController.getAllMovies)
 .post(movieController.insertMovie);
 
